@@ -12,19 +12,27 @@
 // }
 
 
-import React from 'react'
+import { React, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native';
-import { Button } from 'react-native-web';
+import { Button, TouchableOpacity } from 'react-native-web';
+import Api from './Api';
 
 
 export default function Demo(Props) {
+    const [data, setData] = useState();
     return (
         <View>
             <Text>Demo</Text>
             <Button
                 title="Go to m2"
-                onPress={() => Props.navi.navigate('home2')}
-            />
+                onPress={() => Props.navi.navigate('home2', { ui: 'à' })}
+            >
+
+            </Button>
+            <TouchableOpacity onPress={() => Props.navi.navigate('home2', { ui: 'à' })}>
+                <Api />
+
+            </TouchableOpacity>
         </View>
 
     );
